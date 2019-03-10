@@ -2,8 +2,8 @@
  * Write a function that calculates the pending balance on your account.
  *
  * Pending payments are payments that you have made but which have not
- * yet cleared. So they will soon be deducted from your current account
- * balance, but they haven't done so yet.
+ * yet cleared. So they have not yet been deducted from your current
+ * account balance.
  *
  * This function should return your account balance once all of the
  * pending payments have been deducted.
@@ -13,7 +13,7 @@
  * @return {Number}
  */
 function getPendingBalance(pendingPayments, currentBalance) {
-  return 0.00;
+  return 0;
 }
 
 /**
@@ -28,7 +28,7 @@ function getPendingBalance(pendingPayments, currentBalance) {
  * @return {Number}
  */
 function getTotalExpenditures(clearedPayments, pendingPayments) {
-  return 0.00;
+  return 0;
 }
 
 /**
@@ -45,7 +45,7 @@ function getTotalExpenditures(clearedPayments, pendingPayments) {
  * @return {Number}
  */
 function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
-  return 0.00;
+  return 0;
 }
 
 /**
@@ -58,7 +58,7 @@ function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
  * @return {Number}
  */
 function getLargestExpense(clearedPayments, pendingPayments) {
-  return 0.00
+  return 0
 }
 
 /**
@@ -73,7 +73,7 @@ function getLargestExpense(clearedPayments, pendingPayments) {
  * @return {Number}
  */
 function getStartingBalance(clearedPayments, currentBalance) {
-  return 0.00;
+  return 0;
 }
 
 /**
