@@ -1,3 +1,12 @@
+/*
+  DO NOT EDIT THE LINE BELOW
+  -------------------------- */
+const generateTable = require("./lib/tables");
+
+/*
+  YOU MAY EDIT THE LINES BELOW
+  ---------------------------- */
+
 /**
  * Write a function that calculates the pending balance on your account.
  *
@@ -5,10 +14,10 @@
  * yet cleared. So they have not yet been deducted from your current
  * account balance.
  *
- * This function should return your account balance once all of the
+ * This function should return your account balance after all of the
  * pending payments have been deducted.
  *
- * @param {Array} pendingPayments Array of pending payments
+ * @param {Array<Number>} pendingPayments Array of pending payments
  * @param {Number} currentBalance How much money is currently in the account
  * @return {Number}
  */
@@ -23,8 +32,8 @@ function getPendingBalance(pendingPayments, currentBalance) {
  * have made, including those that have cleared and those that are still
  * pending.
  *
- * @param {Array} clearedPayments Array of payments that have cleared
- * @param {Array} pendingPayments Array of payments that have not yet cleared
+ * @param {Array<Number>} clearedPayments Array of payments that have cleared
+ * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
 function getTotalExpenditures(clearedPayments, pendingPayments) {
@@ -41,7 +50,7 @@ function getTotalExpenditures(clearedPayments, pendingPayments) {
  *
  * @param {Number} amountToSave How much money you will save each month
  * @param {Number} currentBalance How much money is currently in the account
- * @param {Array} pendingPayments Array of payments that have not yet cleared
+ * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
 function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
@@ -53,12 +62,12 @@ function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
  *
  * The largest expense can come from any payment that you have made.
  *
- * @param {Array} clearedPayments Array of payments that have cleared
- * @param {Array} pendingPayments Array of payments that have not yet cleared
+ * @param {Array<Number>} clearedPayments Array of payments that have cleared
+ * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
 function getLargestExpense(clearedPayments, pendingPayments) {
-  return 0
+  return 0;
 }
 
 /**
@@ -68,7 +77,7 @@ function getLargestExpense(clearedPayments, pendingPayments) {
  * The account balance at the start of this month will be whatever the
  * balance was before the cleared payments were deducted.
  *
- * @param {Array} clearedPayments Array of payments that have cleared
+ * @param {Array<Number>} clearedPayments Array of payments that have cleared
  * @param {Number} currentBalance How much money is currently in the account
  * @return {Number}
  */
@@ -76,16 +85,54 @@ function getStartingBalance(clearedPayments, currentBalance) {
   return 0;
 }
 
-/**
- * Do not edit below this line
- */
+/*
+  DO NOT EDIT BELOW THIS LINE
+  --------------------------- */
+
 const exampleClearedPayments = [21.23, 19.01, 12.21, 56.92, 72, 2.23];
 const examplePendingPayments = [72.2, 41.21];
 const exampleCurrentBalance = 292.12;
-console.log('This month you started with £' + getStartingBalance(exampleClearedPayments, exampleCurrentBalance).toFixed(2) + '.');
-console.log('You have ' + exampleClearedPayments.length + ' payments that have cleared that total £' + exampleClearedPayments.reduce((sum, a) => sum + a).toFixed(2) + '.');
-console.log('You have ' + examplePendingPayments.length + ' payments that are still pending that total £' + examplePendingPayments.reduce((sum, a) => sum + a).toFixed(2) + '.');
-console.log('You have spent a total of £' + getTotalExpenditures(exampleClearedPayments, examplePendingPayments).toFixed(2) + '.');
-console.log('Your balance, including pending payments, is £' + getPendingBalance(examplePendingPayments, exampleCurrentBalance).toFixed(2) + '.');
-console.log('If you put £50 into savings, your remaining budget for this month is £' + getRemainingBudget(50, exampleCurrentBalance, examplePendingPayments).toFixed(2) + '.');
-console.log('Your largest expense this month was £' + getLargestExpense(exampleClearedPayments, examplePendingPayments).toFixed(2) + '.');
+
+generateTable("Account", [
+  {
+    "Starting Balance": getStartingBalance(
+      exampleClearedPayments,
+      exampleCurrentBalance
+    ).toFixed(2)
+  },
+  {
+    "Total Cleared Payments": exampleClearedPayments
+      .reduce((sum, a) => sum + a)
+      .toFixed(2)
+  },
+  {
+    "Total Pending Payments": examplePendingPayments
+      .reduce((sum, a) => sum + a)
+      .toFixed(2)
+  },
+  {
+    "Total Expenditures": getTotalExpenditures(
+      exampleClearedPayments,
+      examplePendingPayments
+    ).toFixed(2)
+  },
+  {
+    "Largest Expenditure": getLargestExpense(
+      exampleClearedPayments,
+      examplePendingPayments
+    ).toFixed(2)
+  },
+  {
+    "Balance after pending payments clear": getPendingBalance(
+      examplePendingPayments,
+      exampleCurrentBalance
+    ).toFixed(2)
+  },
+  {
+    "Remaining budget after saving £50": getRemainingBudget(
+      50,
+      exampleCurrentBalance,
+      examplePendingPayments
+    ).toFixed(2)
+  }
+]);

@@ -1,4 +1,4 @@
-# JavaScript Fundamentals - Finances
+# JavaScript Fundamentals - Payments
 
 In this project, you will work with your group to build a small balance of payments app. This tool will help you calculate how much you have spent this month and how much more you can spend this month.
 
@@ -8,9 +8,10 @@ Once you have cloned the repository, you can run the script with `node app.js`.
 
 1. Ask your project leader to set up a group repository based on this repository.
 2. Make sure each member in the group has forked from your project leader's repository.
-3. Open the `app.js` file and read the instructions. Do you understand what you need to do?
-4. Discuss with your group how to divide up the project and assign responsibilities.
-5. Read the rest of this document before beginning.
+3. Install dependencies with `npm install`.
+4. Open the `app.js` file and read the instructions. Do you understand what you need to do?
+5. Discuss with your group how to divide up the project and assign responsibilities.
+6. Read the rest of this document before beginning.
 
 ## Final Product
 
