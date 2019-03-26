@@ -21,6 +21,7 @@ const generateTable = require("./lib/tables");
  * @param {Number} currentBalance How much money is currently in the account
  * @return {Number}
  */
+
 function getPendingBalance(pendingPayments, currentBalance) {
   return 0;
 }
@@ -36,8 +37,16 @@ function getPendingBalance(pendingPayments, currentBalance) {
  * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
+//this function will be applied to both pending and cleared payments.
+function totalPayments(total, amount) {
+  return total + amount;
+}
+
 function getTotalExpenditures(clearedPayments, pendingPayments) {
-  return 0;
+  return (
+    pendingPayments.reduce(totalPayments) +
+    clearedPayments.reduce(totalPayments)
+  );
 }
 
 /**
@@ -54,7 +63,9 @@ function getTotalExpenditures(clearedPayments, pendingPayments) {
  * @return {Number}
  */
 function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
-  return 0;
+  return (
+    currentBalance - (pendingPayments.reduce(totalPayments) + amountToSave)
+  );
 }
 
 /**
