@@ -24,7 +24,8 @@ const generateTable = require("./lib/tables");
 function getPendingBalance(pendingPayments, currentBalance) {
   return 0;
 }
-
+/*currentBalance - pendingPayments.reduce((x, y) => x + y);
+}
 /**
  * Write a function that calculates the total expenditures for this month.
  *
@@ -39,7 +40,11 @@ function getPendingBalance(pendingPayments, currentBalance) {
 function getTotalExpenditures(clearedPayments, pendingPayments) {
   return 0;
 }
-
+/*(
+    clearedPayments.reduce((x, y) => x + y) +
+    pendingPayments.reduce((x, y) => x + y)
+  );
+}
 /**
  * Write a function that calculates the remaining budget after setting aside
  * some money for savings.
@@ -53,12 +58,15 @@ function getTotalExpenditures(clearedPayments, pendingPayments) {
  * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
+
 function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
   return 0;
 }
+/* currentBalance - pendingPayments.reduce((x, y) => x + y) - amountToSave
+  );
+}
 
-/**
- * Write a function that finds the largest expense this month.
+/*Write a function that finds the largest expense this month.
  *
  * The largest expense can come from any payment that you have made.
  *
@@ -66,10 +74,11 @@ function getRemainingBudget(amountToSave, currentBalance, pendingPayments) {
  * @param {Array<Number>} pendingPayments Array of payments that have not yet cleared
  * @return {Number}
  */
-function getLargestExpense(clearedPayments, pendingPayments) {
-  return 0;
-}
 
+function getLargestExpense(clearedPayments, pendingPayments) {
+  var allPayments = clearedPayments.concat(pendingPayments);
+  return allPayments.sort().pop();
+}
 /**
  * Write a function that calculates the account balance at the start
  * of the month.
@@ -78,11 +87,11 @@ function getLargestExpense(clearedPayments, pendingPayments) {
  * balance was before the cleared payments were deducted.
  *
  * @param {Array<Number>} clearedPayments Array of payments that have cleared
- * @param {Number} currentBalance How much money is currently in the account
+ * @param {Number} currentBalance How much money is currently in the  account
  * @return {Number}
  */
 function getStartingBalance(clearedPayments, currentBalance) {
-  return 0;
+  return clearedPayments.reduce((a, b) => a + b) + currentBalance;
 }
 
 /*
