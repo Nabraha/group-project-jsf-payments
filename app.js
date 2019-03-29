@@ -23,7 +23,7 @@ const generateTable = require("./lib/tables");
  */
 
 function getPendingBalance(pendingPayments, currentBalance) {
-  return 0;
+  return currentBalance - pendingPayments.reduce((a, b) => a + b);
 }
 /*currentBalance - pendingPayments.reduce((x, y) => x + y);
 }
